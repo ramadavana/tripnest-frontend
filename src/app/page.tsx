@@ -1,65 +1,165 @@
-import Image from "next/image";
+"use client";
+
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { CheckCircle, Globe, DollarSign } from "lucide-react";
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+
+const newsletterSchema = z.object({
+  email: z.string().email("Please enter a valid email"),
+});
+
+type NewsletterForm = z.infer<typeof newsletterSchema>;
+
+const tripData = [
+  { name: "Jan", trips: 400 },
+  { name: "Feb", trips: 300 },
+  { name: "Mar", trips: 600 },
+  { name: "Apr", trips: 800 },
+  { name: "May", trips: 500 },
+  { name: "Jun", trips: 700 },
+];
 
 export default function Home() {
+  const form = useForm<NewsletterForm>({
+    resolver: zodResolver(newsletterSchema),
+  });
+
+  const onSubmit = (data: NewsletterForm) => {
+    console.log("Newsletter signup:", data);
+    // Here you would typically send to your backend
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen bg-background text-foreground font-sans">
+      {/* Hero Section */}
+      <section className="flex flex-col items-center justify-center min-h-screen px-6 text-center">
+        <h1 className="text-5xl font-bold text-fontColorPrimary mb-4">
+          Welcome to TripNest
+        </h1>
+        <p className="text-xl text-fontColorSecondary mb-8 max-w-2xl">
+          Discover amazing destinations, plan unforgettable trips, and create memories that last a lifetime.
+          Your journey starts here.
+        </p>
+        <div className="flex gap-4">
+          <Button size="lg">
+            Start Planning
+          </Button>
+          <Button variant="outline" size="lg">
+            Explore Destinations
+          </Button>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-6 bg-muted">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-fontColorPrimary mb-12">
+            Why Choose TripNest?
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <CheckCircle className="w-16 h-16 text-success mx-auto mb-4" />
+                <CardTitle>Easy Planning</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-fontColorSecondary">
+                  Plan your trips effortlessly with our intuitive tools and personalized recommendations.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <Globe className="w-16 h-16 text-warning mx-auto mb-4" />
+                <CardTitle>Global Destinations</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-fontColorSecondary">
+                  Explore thousands of destinations worldwide with detailed guides and local insights.
+                </p>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <DollarSign className="w-16 h-16 text-accent mx-auto mb-4" />
+                <CardTitle>Budget Friendly</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-fontColorSecondary">
+                  Find the best deals and manage your travel budget with our smart cost tracking.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Stats Section with Chart */}
+      <section className="py-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-fontColorPrimary mb-12">
+            Trip Statistics
+          </h2>
+          <Card>
+            <CardContent className="p-6">
+              <ResponsiveContainer width="100%" height={300}>
+                <BarChart data={tripData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                  <Tooltip />
+                  <Bar dataKey="trips" fill="#2D6A6A" />
+                </BarChart>
+              </ResponsiveContainer>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      {/* Newsletter Section */}
+      <section className="py-16 px-6 bg-muted">
+        <div className="max-w-2xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-fontColorPrimary mb-4">
+            Stay Updated
+          </h2>
+          <p className="text-fontColorSecondary mb-8">
+            Subscribe to our newsletter for the latest travel tips and exclusive deals.
+          </p>
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="flex gap-4 max-w-md mx-auto">
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem className="flex-1">
+                    <FormLabel className="sr-only">Email</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your email" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              <Button type="submit">Subscribe</Button>
+            </form>
+          </Form>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="py-8 px-6 bg-card text-card-foreground border-t border-border">
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="text-fontColorSecondary">
+            © 2025 TripNest. All rights reserved. | Made with ❤️ for travelers.
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+      </footer>
     </div>
   );
 }
