@@ -49,101 +49,81 @@
 :root {
   /* Layout and Base Colors */
   --radius: 0.625rem;
-  --background: #FAF9F6;
-  /* Light cream background */
-  --foreground: #2B2B2B;
-  /* Dark text for contrast */
+  --background: #faf9f6;
+  --foreground: #2b2b2b;
 
   /* Card and Popover Colors */
-  --card: #FAF9F6;
-  /* Light cream for cards */
-  --card-foreground: #2B2B2B;
-  /* Dark text on cards */
-  --popover: #FAF9F6;
-  /* Light cream for popovers */
-  --popover-foreground: #2B2B2B;
-  /* Dark text on popovers */
+  --card: #faf9f6;
+  --card-foreground: #2b2b2b;
+  --popover: #faf9f6;
+  --popover-foreground: #2b2b2b;
 
   /* Primary Colors */
-  --primary: #2D6A6A;
-  /* Teal for primary elements */
-  --primary-foreground: #FAF9F6;
-  /* Light text on teal */
+  --primary: #2d6a6a;
+  --primary-foreground: #faf9f6;
 
   /* Secondary Colors */
-  --secondary: #E9C46A;
-  /* Yellow for secondary elements */
-  --secondary-foreground: #2B2B2B;
-  /* Dark text on yellow */
+  --secondary: #e9c46a;
+  --secondary-foreground: #2b2b2b;
 
   /* Accent/Tertiary Colors */
-  --accent: #F4978E;
-  /* Pink for accents/highlights */
-  --accent-foreground: #2B2B2B;
-  /* Dark text on pink */
+  --accent: #f4978e;
+  --accent-foreground: #2b2b2b;
 
   /* Font Colors */
-  --fontColorPrimary: #2B2B2B;
-  /* Dark gray for primary text */
-  --fontColorSecondary: #6B7280;
-  /* Medium gray for secondary text */
-  --fontColorTertiary: #9CA3AF;
-  /* Light gray for tertiary text */
+  --fontColorPrimary: #2b2b2b;
+  --fontColorSecondary: #6b7280;
+  --fontColorTertiary: #9ca3af;
 
   /* Muted Colors */
-  --muted: #FAF9F6;
-  /* Light muted background */
-  --muted-foreground: #2B2B2B;
-  /* Dark muted text */
+  --muted: #faf9f6;
+  --muted-foreground: #2b2b2b;
 
   /* Destructive Color */
-  --destructive: #DC2626;
-  /* Red for errors/destructive actions */
+  --destructive: #ef4444;
 
   /* Success Color */
-  --success: #22C55E;
-  /* Green for success states */
+  --success: #34d399;
 
   /* Warning Color */
-  --warning: #F59E0B;
-  /* Orange for warnings */
+  --warning: #fbbf24;
 
   /* Border and Input Colors */
-  --border: #E9C46A;
+  --border: #e9c46a;
   /* Yellow borders for subtle separation */
-  --input: #FAF9F6;
+  --input: #faf9f6;
   /* Light input backgrounds */
-  --ring: #2D6A6A;
+  --ring: #2d6a6a;
   /* Teal focus rings */
 
   /* Chart Colors */
-  --chart-1: #2D6A6A;
+  --chart-1: #2d6a6a;
   /* Teal */
-  --chart-2: #E9C46A;
+  --chart-2: #e9c46a;
   /* Yellow */
-  --chart-3: #F4978E;
+  --chart-3: #f4978e;
   /* Pink */
-  --chart-4: #2B2B2B;
+  --chart-4: #2b2b2b;
   /* Dark gray */
-  --chart-5: #FAF9F6;
+  --chart-5: #faf9f6;
   /* Light cream */
 
   /* Sidebar Colors */
-  --sidebar: #FAF9F6;
+  --sidebar: #faf9f6;
   /* Light sidebar background */
-  --sidebar-foreground: #2B2B2B;
+  --sidebar-foreground: #2b2b2b;
   /* Dark sidebar text */
-  --sidebar-primary: #2D6A6A;
+  --sidebar-primary: #2d6a6a;
   /* Teal sidebar primary */
-  --sidebar-primary-foreground: #FAF9F6;
+  --sidebar-primary-foreground: #faf9f6;
   /* Light text on teal */
-  --sidebar-accent: #E9C46A;
+  --sidebar-accent: #e9c46a;
   /* Yellow sidebar accent */
-  --sidebar-accent-foreground: #2B2B2B;
+  --sidebar-accent-foreground: #2b2b2b;
   /* Dark text on yellow */
-  --sidebar-border: #E9C46A;
+  --sidebar-border: #e9c46a;
   /* Yellow borders */
-  --sidebar-ring: #2D6A6A;
+  --sidebar-ring: #2d6a6a;
   /* Teal rings */
 }
 
