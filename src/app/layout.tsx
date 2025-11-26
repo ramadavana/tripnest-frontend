@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Onest } from "next/font/google";
 import "./globals.css";
+import ClientWrapper from "@/components/pages/ClientWrapper";
 
 const onest = Onest({
   variable: "--font-onest",
@@ -9,7 +10,8 @@ const onest = Onest({
 
 export const metadata: Metadata = {
   title: "TripNest - Plan Your Perfect Trip",
-  description: "Discover amazing destinations, plan unforgettable trips, and create memories that last a lifetime with TripNest.",
+  description:
+    "Discover amazing destinations, plan unforgettable trips, and create memories that last a lifetime with TripNest.",
 };
 
 export default function RootLayout({
@@ -19,10 +21,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${onest.variable} antialiased`}
-      >
-        {children}
+      <body className={`${onest.variable} antialiased`}>
+        <ClientWrapper>{children}</ClientWrapper>
       </body>
     </html>
   );
