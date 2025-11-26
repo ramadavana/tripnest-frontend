@@ -66,7 +66,7 @@
   --secondary-foreground: #2b2b2b;
 
   /* Accent/Tertiary Colors */
-  --accent: #f4978e;
+  --accent: #ff6523;
   --accent-foreground: #2b2b2b;
 
   /* Font Colors */
@@ -100,7 +100,7 @@
   /* Teal */
   --chart-2: #e9c46a;
   /* Yellow */
-  --chart-3: #f4978e;
+  --chart-3: #ff6523;
   /* Pink */
   --chart-4: #2b2b2b;
   /* Dark gray */
